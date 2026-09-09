@@ -4,38 +4,41 @@
 
 SecurePay is an unsupervised anomaly detection system designed to identify potentially fraudulent credit card transactions.
 
-Financial fraud is highly imbalanced, with fraudulent transactions representing a very small percentage of total transactions. Traditional supervised classification can therefore be misleading when evaluated using accuracy alone.
+Financial fraud detection is a highly imbalanced problem, where fraudulent transactions represent a very small percentage of total transactions. Therefore, accuracy alone is not an appropriate primary evaluation metric.
 
-This project focuses on identifying unusual transactions by learning the characteristics of normal transaction behavior.
+This project focuses on detecting unusual transaction patterns by learning the characteristics of normal transaction behavior.
 
 ## Algorithms Used
 
 ### 1. Isolation Forest
 
-Isolation Forest detects anomalies by isolating observations using randomly selected features and split values.
+Isolation Forest is an anomaly detection algorithm that identifies unusual observations by isolating them using randomly selected features and split values.
 
 ### 2. Local Outlier Factor (LOF)
 
-LOF identifies observations that exist in regions with significantly lower local density than their neighboring observations.
+Local Outlier Factor identifies observations that exist in regions with significantly lower local density compared with their neighboring observations.
 
 ## Data Preprocessing
 
-The credit card transaction dataset contains PCA-transformed features along with:
+The dataset contains PCA-transformed transaction features along with:
 
 - Time
 - Amount
 - Class
 
-The `Amount` feature was scaled using `RobustScaler` because it is less sensitive to extreme outliers.
+The `Amount` feature was scaled using `RobustScaler`, which is less sensitive to extreme values and outliers.
+
+The original dataset is not included in the GitHub repository because of its large file size.
 
 ## Exploratory Data Analysis
 
-The project analyzes:
+The project includes analysis of:
 
 - Normal vs fraudulent transaction distribution
 - Transaction Amount distribution
 - Transaction Time distribution
 - PCA feature space
+- Detected anomalies
 
 ## Evaluation Metrics
 
@@ -52,15 +55,15 @@ Accuracy is not used as the primary evaluation metric.
 
 ### Isolation Forest
 
-Precision: 0.0879  
-Recall: 0.5569  
-F1-Score: 0.1518
+- Precision: 0.0879
+- Recall: 0.5569
+- F1-Score: 0.1518
 
-### LOF
+### Local Outlier Factor
 
-Precision: 0.0575  
-Recall: 0.3171  
-F1-Score: 0.0973
+- Precision: 0.0575
+- Recall: 0.3171
+- F1-Score: 0.0973
 
 ## Contamination Tuning
 
@@ -74,7 +77,7 @@ The best tested configuration was:
 - Recall: 0.4228
 - F1-Score: 0.1960
 
-The contamination value of 0.005 produced the highest F1-score among the tested configurations.
+The contamination value of `0.005` produced the highest F1-score among the tested configurations.
 
 ## Visualizations
 
@@ -105,18 +108,18 @@ The project includes:
 SecurePay_Fraud_Detection/
 │
 ├── data/
-│   └── creditcard.csv
+│   └── creditcard.csv          # Local dataset, not uploaded to GitHub
 │
-├── models/
+├── models/                     # Saved trained models
 │
 ├── notebooks/
-│   └── fraud_detection.ipynb
+│   └── fraud_detection.ipynb   # Complete analysis and experiments
 │
 ├── results/
-│   ├── metrics/
-│   └── plots/
+│   ├── metrics/                # Evaluation results
+│   └── plots/                  # Generated visualizations
 │
-├── src/
+├── src/                        # Project source code
 │
 ├── requirements.txt
 ├── README.md
