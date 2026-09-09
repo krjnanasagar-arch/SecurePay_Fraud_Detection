@@ -1,6 +1,9 @@
 pandas
 numpy
-matplotlib
 scikit-learn
-jupyter
-notebook
+joblib
+fastapi
+uvicorn
+pydantic
+streamlit
+requests
