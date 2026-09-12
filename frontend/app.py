@@ -65,7 +65,7 @@ st.divider()
 # API configuration
 # --------------------------------------------------
 
-API_URL = "http://127.0.0.1:8000/predict"
+API_URL = API_URL = "https://securepay-fraud-api.onrender.com/predict"
 
 # --------------------------------------------------
 # Transaction inputs
